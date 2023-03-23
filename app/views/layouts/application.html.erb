@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : 'Хороший программист — счастливчик!' %></title>
   <%= csrf_meta_tags %>
-
   <%= stylesheet_link_tag 'application', :media => 'all' %>
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -28,7 +27,6 @@
   <!-- For all other devices -->
   <!-- Size should be 32 x 32 pixels -->
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-
   <%= javascript_include_tag 'application' %>
 
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -44,6 +42,12 @@
     <%= link_to 'Billionaire', root_path, class: 'navbar-brand' %>
     <% if user_signed_in? %>
       <div class="navbar-form navbar-right">
+
+        <% if current_user.is_admin? %>
+          <%# Ссылка на админку %>
+          <%= link_to 'Админка', rails_admin_path, class: 'btn navbar-btn btn-danger btn-xs' %>
+          <%= link_to 'Залить новые вопросы', new_questions_path, class: 'btn navbar-btn btn-warning btn-xs' %>
+        <% end %>
         <%= link_to content_tag(:span, "#{current_user.name} - #{number_to_currency current_user.balance}"),
                     user_path(current_user),
                     class: 'btn navbar-btn'
