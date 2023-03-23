@@ -21,7 +21,7 @@ describe 'users/show.html.erb', type: :view do
     end
 
     it 'renders partial' do
-      expect(rendered).to have_content 'template'
+      expect(rendered).to match 'template'
     end
 
     it 'renders link' do
