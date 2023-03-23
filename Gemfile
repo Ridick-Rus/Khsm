@@ -19,6 +19,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+
+  gem 'capybara'
+  # Этот гем позволяет сохранять и открывать скриншот страницы
+  # с результатом активности юзера
+  gem 'launchy'
 end
 
 group :production do
