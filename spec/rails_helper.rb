@@ -21,6 +21,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Devise::TestHelpers, type: :view
 
+  config.include Warden::Test::Helpers, type: :feature
+
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
